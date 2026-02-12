@@ -1,0 +1,161 @@
+/* นำเข้าฟอนต์สาย Dev (JetBrains Mono) */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;700&family=Sarabun:wght@300;400;500&display=swap');
+
+:root {
+    --bg-color: #0d1117; /* สีดำแบบ GitHub Dark Mode */
+    --card-bg: #161b22;
+    --primary: #58a6ff;   /* สีฟ้า Code */
+    --accent: #238636;    /* สีเขียว Success */
+    --text-main: #c9d1d9;
+    --text-dim: #8b949e;
+    --border: #30363d;
+    --tester1: #970e0e;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Sarabun', sans-serif; /* เนื้อหาทั่วไป */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-image: radial-gradient(#1f2428 1px, transparent 1px);
+    background-size: 20px 20px; /* สร้างลายจุดจางๆ พื้นหลัง */
+}
+
+/* กล่องหลัก Glassmorphism + Tech Border */
+.container {
+    background: rgba(22, 27, 34, 0.95);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+/* แถบสีด้านบนเหมือนหน้าต่างโปรแกรม */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), #bc8cff);
+    border-radius: 6px 6px 0 0;
+}
+
+h1, h2, .code-font {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.sub-text {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Input Fields สไตล์ Terminal */
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+/* --- แก้ไขจุดนี้: เพิ่ม email และ number เข้าไป --- */
+input[type="text"], 
+input[type="password"],
+input[type="email"], 
+input[type="number"] {
+    width: 100%;
+    background: #0d1117;
+    border: 1px solid var(--border);
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box; /* สำคัญ! ป้องกันกล่องเบี้ยว */
+}
+
+/* --- เพิ่มส่วนนี้: แก้ปัญหาจอขาวเวลา Browser จำรหัสผ่าน (Autofill) --- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #0d1117 inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+/* ปุ่มกดสไตล์ Dev */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #0d1117;
+}
+.btn-primary:hover {
+    background-color: #79c0ff;
+    transform: translateY(-2px);
+}
+    
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    margin-top: 10px;
+}
+.btn-secondary:hover {
+    border-color: var(--text-main);
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* Animation ตัวหนังสือพิมพ์เอง */
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--primary);
+    animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+    display: inline-block;
+}
+
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--primary) } }
